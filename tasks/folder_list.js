@@ -9,7 +9,6 @@
 'use strict';
 var fs = require("fs"); //Load the filesystem module
 var path = require("path"); // Path tools
-var to = require("to") // JSON, YML convert
 
 module.exports = function (grunt) {
 
@@ -98,11 +97,6 @@ module.exports = function (grunt) {
 
             // Convert structure object to JSON
             var contents = JSON.stringify(structure);
-
-            // Check if yml
-            if (format === 'yml' || format === 'ymal') {
-                contents = to.format.yaml.stringify(contents);
-            }
 
             // Write out the file
             grunt.file.write(f.dest, contents);
